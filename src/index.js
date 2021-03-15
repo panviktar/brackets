@@ -1,6 +1,13 @@
 module.exports = function check(str, bracketsConfig) {
-    let array = [];
-    let lenghthForStr = str.length;
-    if (lenghthForStr % 2 != 0) return false;
-    return (array.length === 0);
-};
+    let bracketsArr = [];
+    bracketsConfig.forEach(el => {
+        bracketsArr.push(el.join(''));
+    });
+    for (let i = 0; i < bracketsArr.length; i++) {
+        if (str.includes(bracketsArr[i])) {
+            str = str.replace(bracketsArr[i], '');
+            i = -1;
+        }
+    }
+    return str.length === 0;
+}
