@@ -1,11 +1,11 @@
 module.exports = function check(str, bracketsConfig) {
-    let bracketsArr = [];
+    const bracketsArray = [];
     bracketsConfig.forEach(el => {
-        bracketsArr.push(el.join(''));
+        bracketsArray.push(el.join(''));
     });
-    for (let i = 0; i < bracketsArr.length; i++) {
-        if (str.includes(bracketsArr[i])) {
-            str = str.replace(bracketsArr[i], '');
+    for (let i = 0; i < bracketsArray.length; i++) {
+        if (str.includes(bracketsArray[i])) {
+            str = str.replace(bracketsArray[i], '');
             i = -1;
         }
     }
